@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //我们可以查看到字符串的很多方法
+    console.log(String.prototype);
+    //ES6常用新方法：
+    // 1.includes 返回值是Boolean类型 true/false
+    //判断字符串中有没有指定字符
+    //includes("指定字符","开始查找的位置(可选)")
+    //第二个参数转换的方法我们可以发现是用的 Number方法
+    let str = "abcdefg12345";
+    console.log(str.includes("a"));//true
+    console.log(str.includes("a", 2));//false 从索引2开始也就是第三个后查找"a"，是不存在的
+    console.log(str.includes("g", "2"));//true 第二个参数即使不是数字也会默认转为数字
+    console.log(str.includes("a", null));//true null默认转为0
+    //2.startsWith endsWith
+    //startsWith判断字符串是不是以指定字符作为开头
+    //startsWith("指定字符"，开始查找的位置(可选))
+    //endsWith判断字符串是不是以指定字符作为结尾
+    //endsWith("指定字符"，num(可选))  这里的num指的是：从前num个查看
+    console.log(str.startsWith("a"));//true
+    console.log(str.startsWith("a", 3));//false 索引3处应该是以d开头
+    console.log(str.endsWith("c"));//false
+    console.log(str.endsWith("c", 3));//true 前三个字符的结尾是c
+    //3.repeat(num) 重复
+    //将字符串重复num次，num必须是取整的，不可以是负数或者infinity
+    console.log(str.repeat(2));//"abcdefg12345abcdefg12345"
+    console.log(str.repeat(0));//什么都没打印出
+    // console.log(str.repeat(-1));//报错：Invalid count value 是一个无效的值
+    console.log(str.repeat(-0.3));//这里会取整为0  什么都不输出
+    console.log(str);//abcdefg12345 不会修改原字符串
+    //4.padStart padEnd (ES7中的新方法)
+    //按照指定字符补全字符串的指定长度
+    //参数1.长度length 2.指定字符
+    //padStart(length,"指定字符")
+    let str1="ab";
+    console.log(str1.padStart(5, "g"));//"gggab"
+    console.log(str1.padStart(7, "ghk"));//这里ghk是三个字母，补一次不够7，补两次超过7. 结果输出 "ghkghab" 这个方法进行了自动截取
+</script>
+</body>
+</html>

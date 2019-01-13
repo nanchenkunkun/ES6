@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(Array.prototype);
+	let arry1=[1,2,34,5,5,6,6,76];
+	console.log(arry1.copyWithin(4,2,4));
+	console.log(arry1);
+	console.log(arry1.copyWithin(3,2));
+
+
+	console.log(arry1.fill("Cyan"));
+	console.log(arry1);
+	let array2;
+	array2=[1,2,4,5,6,2];
+	// console.log(array2.fill("Aqing",3));
+	console.log(array2.fill("Cyan",3,5));
+   
+    let arry3=["cyan",1,2,3,"Cyan"];
+    let newArr=arry3.filter(function(item,index){
+    	return typeof item==="number";
+    });
+    console.log(newArr);
+
+
+    let b=arry3.find(function(item){
+    	return typeof item==="string";
+    });
+    console.log(b);
+    console.log([1,2,4].includes(1));
+    console.log([1,2,3].includes(1,1));
+    console.log([1,2,4,5,6].every(function(item){
+    	return typeof item==="number";
+    }));
+    console.log([1,2,4,5,65].every(function(item){
+    	return item==="number";
+    }))
+    console.log([1,2,4,5,6,'Cyan'].some(function(item){
+    	return typeof item==="number";
+    }));
+
+    let array4=[1,2,4,5,6];
+    console.log(array4.reduce(function(prev,item){
+    	return prev+item;
+    }))
+    console.log(array4.reduce(function(prev,item){
+    	return prev+item;
+    },10));
+
+
+    console.log(array4.reduceRight(function(prev,item){
+    	return prev+item;
+    }))
+
+    let array5=['a','b','c','d'];
+    console.log(array5.keys());
+    for(let key of array5.keys()){
+    	console.log(key);
+    }
+    for(let item of array5){
+    	console.log(item);
+    }
+
+    for(let e of array5.entries()){
+    	console.log(e);
+    }
+    for(let [index,item] of array5.entries()){
+    	console.log(index,item);
+    }
+
+</script>
+</html>

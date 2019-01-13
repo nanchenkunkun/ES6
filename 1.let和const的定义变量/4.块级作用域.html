@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+
+	{
+		var a=0;
+		function getA(){
+			console.log("ok");
+		}
+		let b=1;
+	}
+	console.log(a);
+	getA();
+    var s=[];
+	var list=document.getElementById("list").getElementsByTagName("li");
+	for(let i=0;i<list.length;i++){
+		list[i].onclick=function(){
+			alert(i);
+		}
+	}
+</script>
+</html>

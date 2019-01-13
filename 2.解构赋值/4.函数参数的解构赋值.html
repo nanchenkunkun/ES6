@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function getB1({name="zhufeng",age=100}={}){
+		console.log(name,age);
+
+	}
+	function getB2({name,age}={name:"zhufeng",age:100}){
+		console.log(name,age);
+	};
+
+
+	getB1(); //undefined
+	getB2();//name:zhufeng,age:100
+	getB1({});//zhufeng,age=100
+	getB2({});//undefied undefied
+</script>
+</html>

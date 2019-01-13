@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1></h1>
+<script>
+    //跟普通字符串一样使用 但是他可以添加变量 ${}
+    let str = "Cyan";
+    let num = 1;
+    str += num;
+    console.log(str);//Cyan1  这里采用的是普通的拼接
+    // 要在页面上呈现'<h1 class="box">Aqing</h1>'
+    let class1 = "box1",name = "Cyan";
+    // document.body.innerHTML += '<h1 class='+class1+'>'+name+'</h1>';
+
+    document.body.innerHTML+= `<h1 class=${class1}>${name}</h1>`
+</script>
+</body>
+</html>
