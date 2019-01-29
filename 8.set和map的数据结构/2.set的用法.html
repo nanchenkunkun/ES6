@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //数组去重
+    let ary = [1,2,1,3,2,4,3,5];
+    console.log(new Set(ary));//Set(5) {1, 2, 3, 4, 5} 打印出后的确去重了  但是不是数组了 我们还得把它变成数组
+    console.log([...new Set(ary)]);//(5) [1, 2, 3, 4, 5]
+    //改写成方法
+    function unique(ary) {
+        return [...new Set(ary)];//Array类上的ES6新方法 from也可以转成数组
+    }
+    //拓展 如何取两个数组的交集 并集 差集
+    //并集
+    let ary1 = [1,3,5,7,8,9];
+    let ary2 = [2,4,6,7,8,9];
+    function add(ary1,ary2) {
+        return [...new Set([...ary1,...ary2])];
+    }
+    console.log(add(ary1, ary2));//[1, 3, 5, 7, 8, 9, 2, 4, 6]
+    //交集
+    function same(ary1,ary2) {
+        return ary1.filter(item => ary2.includes(item));
+    }
+    console.log(same(ary1, ary2));//[7, 8, 9]
+    //差集 :并集减去交集
+    function diff(ary1,ary2) {
+        return add(ary1,ary2).filter(item=>!same(ary1,ary2).includes(item));
+        //filtter是遍历数组每一项做判断 判断交集的项是否包含并集的项 包含(相同) 返回true 再取反返回false
+    }
+    console.log(diff(ary1, ary2));//[1, 3, 5, 2, 4, 6]
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let obj={
+		name:"Cyan"
+	};
+	console.log(obj.name);
+	console.log(obj.name="Aqing");
+	let obj2={
+		_name:"Cyan",
+		get name(){
+			console.log(1);
+			return this._name;
+		},
+		set name(val){
+			console.log(2);
+			this._name=val;
+		}
+	};
+	console.log(obj2.name);
+	obj2.name="Aqing";
+	console.log(obj2.name);
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let sym1=Symbol("foo");
+	let sym2=Symbol("foo");
+	console.log(typeof sym1);
+	console.log(sym2);
+	console.log(sym2===sym1);
+
+
+	let obj={
+		[sym1]:"Aqing"
+	}
+	console.log(obj);
+	obj[sym2]="Cyan";
+	console.log(obj);
+
+	console.log(!Symbol("1"));
+	console.log(Symbol("Cyan").toString());
+	let Aq1=Symbol("Aqing");
+	let Aq2=Symbol.for("Aqing");
+	let Aq3=Symbol.for("Aqing");
+	console.log(Aq2===Aq3);
+	console.log(Aq1===Aq2);
+
+
+	console.log(Symbol.keyFor(Aq2));
+	console.log(Symbol.keyFor(Aq1));
+</script>
+</html>

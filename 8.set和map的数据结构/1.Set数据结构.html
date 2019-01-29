@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //类似数组 只有值value没有键key
+    //通过构造函数方式创建一个set实例
+    //参数是一个数组或者一个类似数组的(有接口的 iterable)
+    //有iterable接口的常用的数据结构：数组，arguments，元素集合，Set，Map，字符串
+    //会默认去重
+    console.log(new Set());//Set(0) {}  (可展开)
+    console.log(new Set([1, 2, 3, 4]));//Set(4) {1, 2, 3, 4} 展开发现里面只有value没有key
+    console.log(new Set("1234"));//Set(4) {"1", "2", "3", "4"} 仍然只有value没有key
+    function fn() {
+        console.log(new Set(arguments));
+    }
+    fn(1,2,3,4);//Set(4) {1, 2, 3, 4} 展开仍然没有key 只有value
+    console.log(new Set([1, 1, 3, 4, 2, 4, 2, 3, 10]));//Set(5) {1, 3, 4, 2, 10} 有去重的功能
+    console.log(new Set("12311332414214314345"));//Set(5) {"1", "2", "3", "4", "5"} 去重
+    //关于Set实例的大小个数的方法：add clear delete has
+    //add() 增加
+    //但是如果之前没有 会成功加上  如果之前有 就不会加上 因为自带去重
+    //返回值增加后的Set实例  如此我们根据返回值可以使用链式写法
+    //add参数只能一次写一个
+    let set1 = new Set([1,2,"哈哈",null,NaN,true]);
+    console.log(set1.add(1));//添加失败
+    console.log(set1.add(10));//添加成功
+    console.log(set1.add(11).add(12));//链式写法添加成功
+    console.log(set1.add(NaN));//添加失败  尽管NaN不等于NaN 但是也不能添加成功
+    //delete() 删除
+    //参数是删除的值
+    //返回值是布尔值 true or false 如果里面有着一项就删除成功true，没有此项就删除失败false
+    console.log(set1.delete(12));//true
+    console.log(set1);//12 已经删除成功
+    console.log(set1.delete(1000));//false
+    //has() 判断有没有此项
+    //参数是判断的项  返回值true/false
+    console.log(set1.has(NaN));//true 这里的内置方法一定不是靠相等判断的 因为NaN不等于NaN
+    //clear 清空
+    //没有返回值 没有参数
+    console.log(set1.clear());//undefined 因为没有返回值
+    console.log(set1);//Set(0) {}  已经被清空了
+    //遍历的方法：forEach keys values entries
+    //forEach 遍历每一项 参数函数有形参 当前项 当前项的索引 正在遍历的当前实例
+    //然而Set实例只有value没有key 所以就会造成以下情况
+    let set2 = new Set([1,2,"哈哈",null,NaN,true]);
+    set2.forEach((...rest)=>{
+        //因为Set实例只有value没有key  所以 遍历出来打印出来的内容  item 和 index都是一模一样的当前项 第三个是当前实例
+        //比如第一个 打印出来是 [1, 1, Set(6)] 第二个打印出来是[2, 2, Set(6)] 第三个打印出来是["哈哈", "哈哈", Set(6)]
+        console.log(rest);
+    });
+    //keys 遍历一个接口
+    console.log(set2.keys());//SetIterator {1, 2, "哈哈", null, NaN, …}
+    //我们知道之前测试代码中有一个for of 方法是用来遍历接口的
+    for(let key  of set2.keys()){
+        console.log(key);
+        //打印出了 1 2 哈哈 null NaN true
+        //因为Set没有key只有value
+        //key仍然是value值
+    }
+    //values 大致同上 遍历了一个接口 但是用for of打印的是正经value
+    console.log(set2.values());//SetIterator {1, 2, "哈哈", null, NaN, …}
+    for(let key of set2.values()){
+        console.log(key);//打印出了 1 2 哈哈 null NaN true
+    }
+    //entries 遍历了一个接口 我们使用for of 遍历一下
+    console.log(set2.entries());//SetIterator {1, 2, "哈哈", null, NaN, …}
+    for(let key of set2.entries()){
+        console.log(key);//打印出了 [1, 1] [2, 2] ["哈哈", "哈哈"]  [null, null] [NaN, NaN]  [true, true]
+    }
+    //我们可以解构赋值
+    for(let [key,val] of set2.entries()){
+        console.log(key,val);//打印出了 1 1   2 2   哈哈 哈哈    null null      NaN NaN     true true
+    }
+    //全都是value值
+</script>
+</body>
+</html>

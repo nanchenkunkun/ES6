@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let A=class{
+		constructor(){
+			console.log(A.name);
+		}
+	};
+
+	new A();
+
+	let B=class BB{
+		constructor(){
+			console.log(BB.name);
+			console.log(B.name);
+		}
+		getB(){
+			console.log(BB.name);
+		}
+	};
+
+	let a=new B();
+</script>
+</html>

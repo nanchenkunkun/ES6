@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function fn(x="Aqing",y="Cyan"){
+		console.log(x+y);
+	}
+	fn(1);
+	function fn1({name="Cyan",age=19}){
+		console.log(name);
+	}
+	fn1();
+	function fn2({name="Aqing",age=19}={}){
+		console.log(name,age);
+	}
+	fn2();
+	fn3();
+	function fn3({name,age}={name:"Aqing",age:19}){
+		console.log(name,age);
+	}
+	function fn4(x,y){
+
+	}
+	console.log(fn4.length);
+	function fn5(x,y=1){
+
+	}
+	console.log(fn5.length);
+	function fn6(x=10,y=20){
+
+	}
+	function fn7(...arg){
+		console.log(arguments);
+		console.log(arg);
+	}
+	fn7(1,2,3,4,5);
+
+	let m=10,n=100;
+	function fn8(x=m,y=n){
+		console.log(x);
+		console.log(y);
+		let m="Cyan";
+		let n="ES6";
+	}
+	fn8();
+	fn8(1);
+
+
+
+	let x=100;
+	function fn9(x,y=x){
+		console.log(y);
+	}
+	fn9(1);
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let obj={name:"Cyan",age:"19"};
+	let proxy1=new Proxy(obj,{
+		get(target,key,proxy){
+			console.log("getlalala");
+			return target[key];
+		}
+	});
+	console.log(obj.name);
+	console.log(proxy1.name);
+</script>
+</html>

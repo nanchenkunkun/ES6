@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let p1=new Promise((resolve,reject)=>{
+		resolve("OK");
+	});
+	let p2=new Promise((resolve,reject)=>{
+		reject("p2Error");
+	})
+	let p3=new Promise((resolve,reject)=>{
+		resolve("OK");
+	})
+	let pAll=Promise.all([p1,p2,p3]);
+	console.log(pAll);
+	pAll.then((res)=>{
+		console.log(res);
+	}).catch((e)=>{
+		cosole.log(e);
+	})
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let pro1=new Promise((resolve,reject)=>{
+		resolve("success");
+		reject("error");
+	});
+	pro1.then((res)=>{
+		console.log(res);
+	},(e)=>{
+		console.log(e);
+	})
+	console.log(111);
+</script>
+</html>

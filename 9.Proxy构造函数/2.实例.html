@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let obj={name:"Cyan"};
+	let proxy1=new Proxy(obj,{
+		get(target,propKey,receiver){
+			return target[proKey];
+		},
+		set(target,proKey,value,receiver){
+			console.log("setting");
+			target[proKey]=value;
+			return true;
+		}
+	});
+	proxy1.age=10;
+	console.log(obj);
+</script>
+</html>

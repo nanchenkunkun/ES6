@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let p1=new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve("OK1");
+		},3000);
+	})
+
+	let p2=new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve("OK2");
+		},2200);
+	});
+
+	let p3=new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve("OK3");
+		},5000);
+	});
+
+	Promise.race([p1,p2,p3]).then((res)=>{
+		console.log(res);
+	}).catch((e)=>{
+		consoe.log(e);
+	})
+</script>
+</html>
